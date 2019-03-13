@@ -36,6 +36,14 @@ def apply_clearance(cart)
   cart
 end
 
+def total_cost(cart)
+  total = 0
+  cart.each do |item, properties|
+    total += properties[:price] * properties[:count]
+  end
+  
+end
+
 def checkout(cart, coupons)
   do_coupons = apply_coupons(cart, coupons)
   do_clearance = apply_clearance(do_coupons)
